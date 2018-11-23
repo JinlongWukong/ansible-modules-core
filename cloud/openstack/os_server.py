@@ -414,7 +414,7 @@ def _network_args(module, cloud):
                 module.fail_json(
                     msg='Could not find network by net-name: %s' %
                     net['net-name'])
-            args.append({'net-id': by_name['id']})
+            args.append(net.update({'net-id': by_name['id']}))
         elif net.get('port-id'):
             args.append(net)
         elif net.get('port-name'):
